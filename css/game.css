@@ -28,3 +28,11 @@
   transform: translateY(-0.1rem);
   transition: transform 150ms;
 }
+
+.CORRECT {
+  background: green;
+}
+
+.WRONG {
+  background: red;
+}
