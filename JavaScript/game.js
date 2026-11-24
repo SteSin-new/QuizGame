@@ -137,6 +137,8 @@ class Game {
     console.log('constructor');
     this.question = document.getElementById('question');
     this.choice = Array.from(document.getElementsByClassName('choice-container'));
+    this.questionCounterText = document.getElementById('questionCounter');
+    this.scoreText = document.getElementById('score');
     console.log(this.choice);
     this.choice.forEach((choice) => {
       console.log('adding listener to', choice);
@@ -163,6 +165,7 @@ class Game {
     }
 
     this.questionCounter++;
+    this.questionCounterText.innerText = `${this.questionCounter}/${MAX_QUESTION}`;
     this.currentQuestion = this.availableQuestions.pop();
     this.question.innerHTML = this.currentQuestion.question;
 
@@ -184,7 +187,7 @@ class Game {
     console.log('CORRECT ANSWER', this.currentQuestion.answer);
 
     if (selectedChoice === this.currentQuestion.answer) {
-      this.score += CORRECT_BONUS;
+      this.incrementScore(CORRECT_BONUS);
       choice.classList.add('CORRECT');
     } else {
       choice.classList.add('WRONG');
@@ -195,6 +198,11 @@ class Game {
       choice.classList.remove('CORRECT', 'WRONG');
       this.getNewQuestion();
     }, 500);
+  }
+
+  incrementScore(bonusScore) {
+    this.score += bonusScore;
+    this.scoreText.innerText = this.score;
   }
 }
 

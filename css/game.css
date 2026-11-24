@@ -9,6 +9,7 @@
 }
 
 .choice-prefix {
+  display: flex;
   padding: 1.5rem 2.5rem;
   background-color: #56a5eb;
   color: white;
@@ -35,4 +36,19 @@
 
 .WRONG {
   background: red;
+}
+
+/* HUD */
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hud-prefix {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.hud-main-text {
+  text-align: center;
 }
